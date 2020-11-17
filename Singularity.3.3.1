@@ -1,0 +1,30 @@
+Bootstrap:docker
+From:continuumio/anaconda
+
+%labels
+    MAINTAINER Marc Hoeppner <m.hoeppner@ikmb.uni-kiel.de>
+    DESCRIPTION Singularity image containing all requirements for Augustus CompPred
+    VERSION 3.3.3
+
+%environment
+    AUGUSTUS_CONFIG_PATH=/opt/augustus/3.3.1/config
+    export AUGUSTUS_CONFIG_PATH
+    PATH=/opt/augustus/3.3.3/bin:/opt/augustus/3.3.3/scripts
+    export PATH
+
+%post
+
+   apt-get -y update
+   apt-get -y install libboost-iostreams-dev zlib1g-dev libgsl-dev libboost-all-dev libsuitesparse-dev liblpsolve55-dev libsqlite3-dev libbamtools-dev libboost-all-dev
+
+   mkdir -p /opt/augustus && cd /opt/augustus
+   wget https://github.com/Gaius-Augustus/Augustus/archive/v3.3.3.tar.gz && tar -xvf v3.3.3.tar.gz && rm v3.3.3.tar.gz
+   mv Augustus-3.3.3 3.3.3
+
+   cd 3.3.3
+
+   # Uncomment relevant compile instructions
+   sed -ibak 's/^#COMP/COMP/' common.mk
+   sed -ibak 's/^#SQL/SQL/' common.mk   
+   
+   make 
