@@ -18,10 +18,6 @@ From:ubuntu:18.04
    apt-get -y update
    apt-get -y install libboost-iostreams-dev zlib1g-dev libgsl-dev libboost-all-dev libsuitesparse-dev liblpsolve55-dev libsqlite3-dev libbamtools-dev libboost-all-dev wget make build-essential sqlite3 libsqlite3-dev
 
-   mkdir -p /opt/samtools && cd /opt/samtools && https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.gz  && tar -xvf samtools-1.9.tar.gz && rm samtools-1.9.tar.gz
-   mv samtools-1.9 1.9
-   cd 1.9 && make
-
    mkdir -p /opt/augustus && cd /opt/augustus
    wget https://github.com/Gaius-Augustus/Augustus/archive/v3.3.3.tar.gz && tar -xvf v3.3.3.tar.gz && rm v3.3.3.tar.gz
    mv Augustus-3.3.3 3.3.3
