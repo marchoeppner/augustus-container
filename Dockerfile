@@ -1,4 +1,4 @@
-FROM ubuntu/18.04
+FROM ubuntu:18.04
 LABEL authors="Marc Hoeppner" \
       description="Docker image containing AUGUSTUS in comparative prediction mode"
 
