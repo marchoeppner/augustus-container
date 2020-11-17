@@ -15,7 +15,7 @@ From:ubuntu:18.04
 %post
 
    apt-get -y update
-   apt-get -y install libboost-iostreams-dev zlib1g-dev libgsl-dev libboost-all-dev libsuitesparse-dev liblpsolve55-dev libsqlite3-dev libbamtools-dev libboost-all-dev
+   apt-get -y install libboost-iostreams-dev zlib1g-dev libgsl-dev libboost-all-dev libsuitesparse-dev liblpsolve55-dev libsqlite3-dev libbamtools-dev libboost-all-dev wget make 
 
    mkdir -p /opt/augustus && cd /opt/augustus
    wget https://github.com/Gaius-Augustus/Augustus/archive/v3.3.3.tar.gz && tar -xvf v3.3.3.tar.gz && rm v3.3.3.tar.gz
