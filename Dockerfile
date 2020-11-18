@@ -18,6 +18,5 @@ LABEL authors="Marc Hoeppner" \
 	&& sed -ibak 's/^#COMP/COMP/' common.mk \
 	&& sed -ibak 's/^#SQL/SQL/' common.mk \
 	&& sed -ibak 's/.*bam2wig.*//' auxprogs/Makefile \
-	&& cat common.mk
 	&& make
    
